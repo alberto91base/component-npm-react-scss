@@ -1,6 +1,6 @@
 {
   "name": "component-npm-react-scss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Componente prueba con css",
   "main": "build/index.js",
   "scripts": {
