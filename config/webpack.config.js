@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -7,6 +9,11 @@ module.exports = {
     libraryTarget: 'commonjs2',
     globalObject: 'this'
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+        filename: "comLabRRSS.css"
+    })
+  ],
   module: {
     rules: [
       {
@@ -17,10 +24,13 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        exclude: /(node_modules|build)/,
-        use: ['style-loader', 'css-loader'],
-      },
+        test: /\.s?[ac]ss$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            { loader: 'css-loader', options: { url: false, sourceMap: true } },
+            { loader: 'sass-loader', options: { sourceMap: true } }
+        ],
+      }
     ],
   },
   externals: {
@@ -31,10 +41,10 @@ module.exports = {
       root: 'React',
     },
     'prop-types': {
-       commonjs: 'prop-types',
-       commonjs2: 'prop-types',
-       amd: 'PropTypes',
-       root: 'PropTypes',
+      commonjs: 'prop-types',
+      commonjs2: 'prop-types',
+      amd: 'PropTypes',
+      root: 'PropTypes',
     },
   },
   resolve: {

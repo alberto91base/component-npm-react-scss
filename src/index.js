@@ -1,2 +1,6 @@
 import React from "react";
-export default () => <h1>Este es mi componente</h1>;
+import './comLabRRSS.scss';
+
+export default () => (
+  <h1 className="componente__prueba">Este es mi componente</h1>
+);
