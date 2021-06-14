@@ -2,10 +2,11 @@
 
 ## Lo importamos
 ``
-import MiComponente from "mi-componente";
+import MiComponenteCss from "component-npm-react-scss";
+import "component-npm-react-scss/build/comLabRRSS.css";
 ``
 
 ## Lo llamamos
 ``
-<MiComponente />
+<MiComponenteCss />
 ``
